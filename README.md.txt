@@ -1,3 +1,0 @@
-#bodhi-tech
-
-WEBSITE FOR AN ORGANIZATION
