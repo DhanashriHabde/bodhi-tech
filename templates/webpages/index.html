@@ -1,0 +1,127 @@
+{% extends 'layout/weblayout.html' %}
+{% load static %}
+
+{% block content%}
+  <!--Carousel Section Start -->
+  <div class="home-slider owl-carousel js-fullheight">
+  {% for cr in carou %}
+    <div class="slider-item js-fullheight" style="background-image:url({{cr.img.url}});">
+      <div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+            <div class="col-md-12 ftco-animate">
+              <div class="text w-100 text-center" data-aos="zoom-in" data-aos-delay="100" >
+                <!-- <h2 style=" font-size: 250%;color:whitesmoke"><b>Vocational Training &amp;Internship</b></h2> -->
+                <div class="direction">
+                <h2 style=" font-size: 250%;color:whitesmoke;">{{cr.headings}}</b></h2>
+                <h3> {{cr.description}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor%}
+    </div>
+
+  <!--Carousel Section End -->
+
+  
+  <br>
+
+
+   <main id="main">
+
+   
+
+
+   <!-- start service Section -->
+
+<div class="container">
+  <div class="row">
+    <h1  style="text-align: center; color: #00ca54;font-size: 200%; font-family:' Poppins;'"><b> Why you choose-Us?</b></h1>
+      
+      <div class="col col-xs-6 d-flex justify-content-center">
+      {% for s in ser %}
+        <div class="serviceBox green">
+          <img src="{{s.gif.url}}" alt="">
+          <h3 class="title">{{s.title}}</h3>
+          <p class="description">
+                  {{s.content}}
+          </p>
+        </div>
+      {% endfor %}
+      </div>
+  </div>
+</div>
+
+    <!-- end service Section -->
+
+
+<!-- start_clients -->
+<section>
+  <div class="container">
+      <div class="row">
+          <div class="form-horizontal"> <h1 class="text-center pt-5 pb-5" style="color: #5fcf80;" > <b>Our Clients</b> </h1> 
+            <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
+
+            <div class="container">
+            
+                <div class="row">
+                  
+                  <div class="col-md-3 col-sm-6 d-flex ">
+                     {% for c in cli %}
+                    <a href="{{c.link}}" target="_blank" rel="noopener noreferrer" style="margin:3rem;">
+                    
+                      <div class="counter">
+                          <div class="counter-content">
+                            <img src="{{c.logo.url}}" alt="" >
+                          </div>
+                      </div>  
+                    </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- end_clients -->
+
+
+
+
+ <!--======= About Section ======= -->
+ <section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+    {% for x in abt %}
+    <div class="row">
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+        <img src="{{x.img.url}}" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+        <h2 style="color:#00ca54"><b>About Us</b></h2>
+        
+        <ul>
+          <li><i class="bi bi-check-circle"></i>{{x.desc1}}</li>
+          <li><i class="bi bi-check-circle"></i> {{x.desc2}}</li>
+           <li><i class="bi bi-check-circle"></i> {{x.desc3}}</li>
+        </ul>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<!-- End About Section -->
+
+<!-- clients-->
+
+
+
+<!-- end clients-->
+
+  </main><!-- End #main -->
+<br>
+{% endblock %}

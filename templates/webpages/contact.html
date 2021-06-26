@@ -1,0 +1,37 @@
+{% extends "layout/weblayout.html" %}
+{% load static %}
+{% block content %}
+ 
+  
+                   
+   <br>                         
+ <!-- ======= Contact Us Section ======= -->
+ <section id="contact" class="contact" >
+
+<br>
+<div> <br> </div>
+ <div>
+      {% if messages %}          
+      {% for message in messages %}
+      <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %} 
+  </div>
+
+    <div class="container p-5 m-3">
+      <div class="row text-center">
+          <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit">
+          </form>
+      </div>
+    </div>
+</section>
+<!-- End Contact Us Section -->
+{% endblock content %}
